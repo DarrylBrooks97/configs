@@ -1,0 +1,18 @@
+[user]
+	name = Darryl Brooks
+	email = darryl.brooks@myfuelmaster.com
+[filesystem "Oracle Corporation|13-ea|/dev/disk1s1"]
+	timestampResolution = 11000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[core]
+	excludesfile = /Users/darrylb/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/darrylb/.stCommitMsg
+[credential]
+	helper = cache
