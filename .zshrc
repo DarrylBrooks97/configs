@@ -26,3 +26,5 @@ if [ -f '/Users/darrylb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/darrylb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/darrylb/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
