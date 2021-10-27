@@ -18,6 +18,9 @@ alias branch="git branch"
 alias stash="git stash"
 alias remote="git remote"
 alias upstream="git push --set-upstream origin"
+alias diff="git diff"
+alias newssh="ssh-keygen -t rsa -b 4096 -C "
+alias newmac="brew bundle --file"
 
 eval "$(starship init zsh)"
 
