@@ -8,6 +8,7 @@ brew 'zip'
 brew "kubernetes-cli"
 brew 'minikube'
 brew 'pgcli'
+brew 'warp'
 
 # Developer Applications 
 cask 'hyper'
