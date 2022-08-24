@@ -1,5 +1,6 @@
 # Developer Tools
 brew 'git'
+brew 'gnupg'
 brew 'node'
 brew 'yarn'
 brew 'vim'
@@ -8,7 +9,6 @@ brew 'zip'
 brew "kubernetes-cli"
 brew 'minikube'
 brew 'pgcli'
-brew 'warp'
 
 # Developer Applications 
 cask 'hyper'
@@ -19,7 +19,6 @@ cask 'docker'
 
 # Communication Applications
 cask 'slack'
-cask 'microsoft-outlook'
 
 # Esstential Applications
 cask 'spotify'
