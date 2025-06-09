@@ -1,34 +1,95 @@
-# Developer Tools
-brew 'git'
-brew 'node'
-brew 'yarn'
-brew 'vim'
-brew 'python'
-brew 'zip'
+# REPOS
+tap "homebrew/bundle"
+tap "planetscale/tap"
+tap "stripe/stripe-cli"
+
+# CLI Tools
+brew "awscli"
+brew "bash-completion"
+brew "cloc"
+brew "coreutils"
+brew "fzf"
+brew "git"
+brew "libevent"
+brew "libidn2"
+brew "unbound"
+brew "gnutls"
+brew "gnupg"
+brew "gnupg@1.4"
+brew "go"
+brew "jq"
 brew "kubernetes-cli"
-brew 'minikube'
+brew "libfido2"
+brew "libpq", link: true
+brew "mysql-client"
+brew "mysql-client@8.4"
+brew "n", link: false
+brew "neovim"
+brew "node"
+brew "node@18"
+brew "node@20"
+brew "node@22"
+brew "openssl@1.1"
+brew "pipenv"
+brew "pnpm"
+brew "python@3.9"
+brew "python@3.10"
+brew "python@3.11"
+brew "railway"
+brew "ripgrep"
+brew "starship"
+brew "tmux"
+brew "typescript", link: false
+brew "vim"
+brew "zip"
+brew "planetscale/tap/pscale"
+brew "stripe/stripe-cli/stripe"
 
-# Developer Applications 
-cask 'hyper'
-cask 'visual-studio-code'
-cask 'postman'
-cask 'docker'
+# Applications (casks)
+cask "cleanshot"
+cask "cursor"
+cask "discord"
+cask "docker"
+cask "ghostty"
+cask "gitkraken"
+cask "font-hack-nerd-font"
+cask "insomnia"
+cask "karabiner-elements"
+cask "linear-linear"
+cask "ngrok"
+cask "notion"
+cask "notion-calendar"
+cask "postman"
+cask "raycast"
+cask "slack"
+cask "spotify"
+cask "todoist"
+cask "zed"
+cask "zed@preview"
+cask "zoom"
 
-
-# Communication Applications
-cask 'discord'
-cask 'slack'
-cask 'microsoft-outlook'
-
-# Esstential Applications
-cask 'google-chrome'
-cask 'spotify'
-cask 'karabiner-elements'
-
-# Productivity Applications
-cask 'raycast'
-cask 'notion'
-cask 'figma'
-
-# Security
-cask 'bitwarden'
+# Extensions (Cursor)
+vscode "achaq.vercel-theme"
+vscode "aprilandjan.ascii-tree-generator"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "firsttris.vscode-jest-runner"
+vscode "formulahendry.auto-rename-tag"
+vscode "idansaban.turbo-console-debuglog"
+vscode "mariusalchimavicius.json-to-ts"
+vscode "mattpocock.ts-error-translator"
+vscode "mhutchie.git-graph"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.autopep8"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "prisma.prisma"
+vscode "raillyhugo.one-hunter"
+vscode "rust-lang.rust-analyzer"
+vscode "sleistner.vscode-fileutils"
+vscode "whizkydee.material-palenight-theme"
+vscode "wix.vscode-import-cost"
+vscode "yoavbls.pretty-ts-errors"
+vscode "zhuangtongfa.material-theme"

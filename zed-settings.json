@@ -1,0 +1,195 @@
+{
+  "theme": {
+    "mode": "system",
+    "light": "Vercel Dark",
+    "dark": "Rich Vesper"
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Colored Zed Icons Theme Light",
+    "dark": "Colored Zed Icons Theme Dark"
+  },
+
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "soft_wrap": "preferred_line_length",
+  "preferred_line_length": 100,
+  "hover_popover_delay": 200,
+  "autoscroll_on_clicks": true,
+  "confirm_quit": true,
+  "projects_online_by_default": false,
+
+  "seed_search_query_from_cursor": "selection",
+  "use_smartcase_search": true,
+  "search": {
+    "case_sensitive": false,
+    "include_ignored": false,
+    "whole_word": false
+  },
+
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_multiline_find": true,
+    "use_smartcase_find": true,
+    "use_system_clipboard": "on_yank",
+    "highlight_on_yank_duration": 250
+  },
+
+  "minimap": {
+    "show": "never",
+    "thumb_border": "left_only"
+  },
+  "project_panel": {
+    "dock": "right",
+    "auto_fold_dirs": false
+  },
+  "terminal": {
+    "dock": "right",
+    "cursor_shape": "bar",
+    "line_height": "standard"
+  },
+  "bottom_dock_layout": "left_aligned",
+  "toolbar": {
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "tabs": {
+    "git_status": true
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-latest"
+    },
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+    "default_profile": "write",
+    "version": "2",
+    "dock": "left",
+    "always_allow_tool_actions": true
+  },
+
+  "languages": {
+    "TSX": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "npx",
+          "arguments": ["prettier", "--config", ".prettierrc", "--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "npx",
+          "arguments": ["prettier", "--config", ".prettierrc", "--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "inlay_hints": {
+        "enabled": true,
+        "edit_debounce_ms": 300,
+        "show_parameter_hints": false,
+        "show_type_hints": false
+      }
+    },
+    "Python": {
+      "format_on_save": "on",
+      "language_servers": ["pyright", "python-refactoring", "ruff"],
+      "indent_guides": {
+        "coloring": "indent_aware"
+      },
+      "formatter": [
+        {
+          "code_actions": {
+            "source.fixAll.ruff": true,
+            "source.organizeImports.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ],
+      "inlay_hints": {
+        "enabled": true,
+        "edit_debounce_ms": 300,
+        "show_parameter_hints": false,
+        "show_type_hints": false
+      }
+    },
+    "Go": {
+      "format_on_save": "on",
+      "enable_language_server": true,
+      "preferred_line_length": 100,
+      "inlay_hints": {
+        "show_type_hints": false,
+        "enabled": true,
+        "show_other_hints": false
+      }
+    }
+  },
+
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "tsserver": {
+            "maxTsServerMemory": 16184
+          }
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 150,
+          "lint": {
+            "extendSelect": ["I"]
+          }
+        }
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "hints": {
+          "assignVariableTypes": true,
+          "compositeLiteralFields": true,
+          "compositeLiteralTypes": false,
+          "constantValues": true,
+          "functionTypeParameters": false,
+          "parameterNames": true,
+          "rangeVariableTypes": true
+        }
+      }
+    }
+  },
+
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+
+  "file_types": {
+    "Dockerfile": ["Dockerfile*"]
+  },
+  "edit_predictions": {
+    "mode": "eager"
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  }
+}

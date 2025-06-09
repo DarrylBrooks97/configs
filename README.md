@@ -1,15 +1,8 @@
-# Universal Computer Configurations
+# My configs
+
+> Just a quick way to setup my new computers
 
 ## Installation
-
-## Installing Brew
-[Link](https://brew.sh/)
-
-For personal
 `bash
-brew bundle --file=~/Brewfile
+brew bundle --file=Brewfile
 `
-For Work
-`bash
-brew bundle --file=~/WorkBrewfile
-
