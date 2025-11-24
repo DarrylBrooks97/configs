@@ -7,11 +7,23 @@
       "cmd-e": "workspace::ToggleRightDock",
       "cmd-shift-g": "git_panel::ToggleFocus",
       "alt-/": "agent::ToggleFocus",
-      "alt-h": "workspace::ActivatePaneLeft",
-      "alt-l": "workspace::ActivatePaneRight",
-      "alt-k": "workspace::ActivatePaneUp",
-      "alt-j": "workspace::ActivatePaneDown",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
       "alt-shift-c": "editor::CopyPermalinkToLine"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-k cmd r": "project_panel::Rename"
+    }
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "shift-m": "project_panel::CollapseAllEntries"
     }
   }
 ]
