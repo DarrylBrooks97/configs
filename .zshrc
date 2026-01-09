@@ -1,5 +1,6 @@
 # Aliases
 alias ll="ls"
+alias compose="docker-compose"
 alias rw="railway"
 alias vim="nvim"
 alias refresh="source ~/.zshrc"
@@ -8,15 +9,20 @@ alias openzsh="nvim ~/.zshrc"
 alias newssh="ssh-keygen -t rsa -b 4096 -C"
 alias opentmux="nvim ~/.tmux.conf"
 alias brewpath="/opt/homebrew/bin/brew"
+alias oc="opencode"
+alias ca="cursor-agent"
 
 # Git
 alias add="git add"
 alias status="git status"
 alias commit="git commit -m"
+alias add-tree='git worktree add'
+alias list-tree='git worktree list'
+alias remove-tree='git worktree remove'
 alias bisect="git bisect"
 alias pull="git pull"
 alias push="git push"
-alias checkout="git checkout"
+alias ch="git checkout"
 alias clone="git clone"
 alias branch="git branch"
 alias stash="git stash"
@@ -92,11 +98,7 @@ source <(fzf --zsh)
 
 [ -s "/Users/dbrooks/.bun/_bun" ] && source "/Users/dbrooks/.bun/_bun"
 
-
-
-
-
-# Zoxide config (https://github.com/ajeetdsouza/zoxide)
+# shellcheck shell=bash
 
 # =============================================================================
 #
@@ -239,5 +241,18 @@ if [[ -o zle ]]; then
 
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete cd
 fi
+
+# Usage: gwj (interactive jump with preview)
+gwj() {
+  local selected=$(git worktree list | fzf \
+    --height 50% --border --layout=reverse \
+    --prompt="Jump to > " \
+    --preview="echo 'Recent Commits:' && git -C {1} log --oneline -5 && echo '\nChanges:' && git -C {1} status --short" \
+    --preview-window="right:50%")
+    
+  if [[ -n "$selected" ]]; then
+    cd "$(echo "$selected" | awk '{print $1}')"
+  fi
+}
 
 eval "$(zoxide init zsh)"

@@ -1,34 +1,10 @@
 return {
-  -- LSP servers and settings
+  -- LSP servers and settings (TypeScript handled by typescript-tools.nvim in typescript.lua)
   {
     'neovim/nvim-lspconfig',
     opts = function(_, opts)
       opts = opts or {}
       opts.servers = vim.tbl_extend('force', opts.servers or {}, {
-        vtsls = {
-          settings = {
-            typescript = {
-              inlayHints = {
-                parameterNames = { enabled = 'literals' },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-            },
-            javascript = {
-              inlayHints = {
-                parameterNames = { enabled = 'literals' },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-            },
-          },
-        },
         tailwindcss = {},
         html = {},
         cssls = {},
@@ -50,7 +26,6 @@ return {
     opts = function(_, opts)
       opts = opts or {}
       local ensure = {
-        'vtsls',
         'tailwindcss',
         'html',
         'cssls',
