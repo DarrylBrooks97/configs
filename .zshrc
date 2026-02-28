@@ -11,10 +11,12 @@ alias opentmux="nvim ~/.tmux.conf"
 alias brewpath="/opt/homebrew/bin/brew"
 alias oc="opencode"
 alias ca="cursor-agent"
+alias ld="lazydocker"
+alias crit="critique"
 
 # Git
 alias add="git add"
-alias status="git status"
+alias st="git status"
 alias commit="git commit -m"
 alias add-tree='git worktree add'
 alias list-tree='git worktree list'
@@ -36,7 +38,7 @@ alias syncfork="git fetch upstream && git merge upstream/main && git push origin
 
 # Code
 alias p="pnpm"
-alias c="cursor"
+alias c="claude --dangerously-skip-permissions"
 
 # Docker commands
 alias d="docker"

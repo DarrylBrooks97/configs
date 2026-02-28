@@ -11,8 +11,9 @@ return {
       -- Disable verbose logging (was causing performance issues)
       tsserver_logs = 'off',
       settings = {
-        -- Spawn additional tsserver for projects with more than 200 files
-        separate_diagnostic_server = true,
+        -- Disable separate diagnostic server to prevent crashes
+        -- (spawning multiple tsserver instances can cause instability)
+        separate_diagnostic_server = false,
         -- Publish diagnostics on insert leave (less aggressive than on change)
         publish_diagnostic_on = 'insert_leave',
         -- Only expose specific code actions (reduces overhead)
@@ -20,8 +21,8 @@ return {
         -- tsserver settings
         tsserver_path = nil,
         tsserver_plugins = {},
-        -- Reduced memory limit (4GB is plenty, 8GB was excessive)
-        tsserver_max_memory = 4096,
+        -- Increase memory limit to prevent crashes on large projects
+        tsserver_max_memory = 8192,
         tsserver_format_options = {},
         tsserver_file_preferences = {
           -- Inlay hints off by default (toggle with <leader>th) - reduces CPU usage

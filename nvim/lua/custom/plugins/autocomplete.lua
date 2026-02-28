@@ -1,6 +1,31 @@
--- Autocomplete configuration for blink.cmp
+-- Autocomplete configuration for blink.cmp + Supermaven AI completions
 -- Fixes: Enter key selection, no line skip, better preselection
 return {
+  -- Supermaven AI code completion
+  {
+    'supermaven-inc/supermaven-nvim',
+    event = 'InsertEnter',
+    opts = {
+      keymaps = {
+        accept_suggestion = '<Tab>',
+        clear_suggestion = '<C-]>',
+        accept_word = '<C-j>',
+      },
+      -- Ignore certain filetypes
+      ignore_filetypes = { 'TelescopePrompt', 'neo-tree', 'neo-tree-popup' },
+      -- Show suggestions in gray ghost text
+      color = {
+        suggestion_color = '#808080',
+        cterm = 244,
+      },
+      -- Log level for debugging
+      log_level = 'off',
+      -- Disable inline completion if you only want blink.cmp integration
+      disable_inline_completion = false,
+      -- Disable keymaps if you want to configure them differently
+      disable_keymaps = false,
+    },
+  },
   {
     'saghen/blink.cmp',
     opts = function(_, opts)
@@ -35,10 +60,9 @@ return {
             auto_insert = false,
           },
         },
-        -- Show ghost text preview
+        -- Disable ghost text (Supermaven provides inline suggestions)
         ghost_text = {
-          enabled = true,
-          show_with_menu = true,
+          enabled = false,
         },
         -- Auto-show documentation
         documentation = {

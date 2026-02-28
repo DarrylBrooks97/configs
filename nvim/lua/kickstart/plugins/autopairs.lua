@@ -114,35 +114,6 @@ return {
         -- Enable close on slash
         enable_close_on_slash = true,
       },
-      -- These are aliases to the ft for tree-sitter
-      aliases = {
-        ['javascriptreact'] = 'jsx',
-        ['typescriptreact'] = 'tsx',
-      },
-      -- Per-filetype configuration
-      per_filetype = {
-        ['html'] = {
-          enable_close = true,
-        },
-        ['xml'] = {
-          enable_close = true,
-        },
-        ['javascriptreact'] = {
-          enable_close = true,
-        },
-        ['typescriptreact'] = {
-          enable_close = true,
-        },
-        ['svelte'] = {
-          enable_close = true,
-        },
-        ['vue'] = {
-          enable_close = true,
-        },
-        ['astro'] = {
-          enable_close = true,
-        },
-      },
     },
   },
 

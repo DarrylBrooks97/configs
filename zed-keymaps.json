@@ -11,19 +11,52 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-      "alt-shift-c": "editor::CopyPermalinkToLine"
+      "alt-shift-c": "editor::CopyPermalinkToLine",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-k cmd r": "project_panel::Rename",
+    },
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "shift-m": "project_panel::CollapseAllEntries",
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "space": null,
+      "space f": "file_finder::Toggle",
+      "space b": "pane::CloseActiveItem",
+      "space /": "workspace::NewSearch",
+      "space t": "workspace::NewCenterTerminal",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-p": "command_palette::Toggle"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-p": null
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      "cmd-k cmd r": "project_panel::Rename"
+      "ctrl-p": null
     }
   },
   {
-    "context": "(ProjectPanel && not_editing)",
+    "context": "(Editor && (showing_code_actions || showing_completions))",
     "bindings": {
-      "shift-m": "project_panel::CollapseAllEntries"
+      "ctrl-p": null
     }
   }
 ]

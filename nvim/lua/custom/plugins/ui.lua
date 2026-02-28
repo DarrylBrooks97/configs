@@ -1,13 +1,21 @@
 -- UI Enhancements: Dashboard, Status Line, Buffer Line, Notifications
 return {
-  -- Vesper colorscheme (dark mode) - loaded by auto-dark-mode in init.lua
+  -- Kanagawa colorscheme (dark mode) - loaded by auto-dark-mode in init.lua
   {
-    'datsfilipe/vesper.nvim',
+    'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
-    opts = {
-      transparent = true,
-    },
+    config = function()
+      require('kanagawa').setup({
+        transparent = true,
+        theme = 'wave', -- wave, dragon, lotus
+        background = {
+          dark = 'wave',
+          light = 'lotus',
+        },
+      })
+      -- Colorscheme will be set by auto-dark-mode
+    end,
   },
   -- snacks.nvim: Dashboard and utilities (LazyVim-style)
   {
@@ -97,6 +105,16 @@ return {
         desc = '[B]uffer [D]elete All',
       },
     },
+    init = function()
+      -- Override :bd and :bdelete to prevent closing Neovim when deleting last buffer
+      vim.api.nvim_create_user_command('Bd', function(opts)
+        Snacks.bufdelete({ buf = opts.args ~= '' and tonumber(opts.args) or 0 })
+      end, { nargs = '?', desc = 'Delete buffer without closing window' })
+
+      -- Abbreviate :bd to :Bd
+      vim.cmd([[cnoreabbrev <expr> bd (getcmdtype() == ':' && getcmdline() ==# 'bd') ? 'Bd' : 'bd']])
+      vim.cmd([[cnoreabbrev <expr> bdelete (getcmdtype() == ':' && getcmdline() ==# 'bdelete') ? 'Bd' : 'bdelete']])
+    end,
   },
 
   -- lualine.nvim: Status line

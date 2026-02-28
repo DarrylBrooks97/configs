@@ -387,6 +387,7 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
   'NicolasGB/jj.nvim', -- Map 'jj' to escape from insert mode
+  { 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' }, -- Markdown preview
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -990,11 +991,18 @@ require('lazy').setup({
         auto_update = false,
       }
 
+      -- TypeScript servers to skip when typescript-tools.nvim is handling TS/JS
+      local ts_servers_to_skip = { 'ts_ls', 'tsserver', 'vtsls' }
+
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
         automatic_installation = false,
         handlers = {
           function(server_name)
+            -- Skip TypeScript servers if typescript-tools.nvim is handling them
+            if ts_server_choice == 'none' and vim.tbl_contains(ts_servers_to_skip, server_name) then
+              return
+            end
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
@@ -1133,63 +1141,16 @@ require('lazy').setup({
     },
   },
 
-  { -- Catppuccin theme - smooth, clean dark mode
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
-    config = function()
-      require('catppuccin').setup {
-        flavour = 'mocha', -- latte, frappe, macchiato, mocha
-        background = {
-          light = 'latte',
-          dark = 'mocha',
-        },
-        transparent_background = true, -- enables transparency for terminal blur
-        show_end_of_buffer = false,
-        term_colors = true,
-        dim_inactive = {
-          enabled = false,
-        },
-        styles = {
-          comments = { 'italic' },
-          conditionals = { 'italic' },
-          functions = {},
-          keywords = {},
-          strings = {},
-          variables = {},
-        },
-        integrations = {
-          gitsigns = true,
-          nvimtree = true,
-          neotree = true,
-          treesitter = true,
-          telescope = { enabled = true },
-          which_key = true,
-          fidget = true,
-          mason = true,
-          native_lsp = {
-            enabled = true,
-            underlines = {
-              errors = { 'undercurl' },
-              hints = { 'undercurl' },
-              warnings = { 'undercurl' },
-              information = { 'undercurl' },
-            },
-          },
-        },
-      }
-      vim.cmd.colorscheme 'catppuccin'
-    end,
-  },
+
 
   {
     'f-person/auto-dark-mode.nvim',
-    dependencies = { 'catppuccin/nvim', 'datsfilipe/vesper.nvim' },
+    dependencies = { 'rebelot/kanagawa.nvim', 'catppuccin/nvim' },
     opts = {
       update_interval = 1000,
       set_dark_mode = function()
         vim.o.background = 'dark'
-        vim.cmd.colorscheme 'vesper'
+        vim.cmd.colorscheme 'kanagawa'
       end,
       set_light_mode = function()
         vim.o.background = 'light'
@@ -1268,6 +1229,52 @@ require('lazy').setup({
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
+  { -- Catppuccin theme for light mode
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    config = function()
+      require('catppuccin').setup {
+        flavour = 'latte',
+        background = {
+          light = 'latte',
+        },
+        transparent_background = true,
+        show_end_of_buffer = false,
+        term_colors = true,
+        dim_inactive = {
+          enabled = false,
+        },
+        styles = {
+          comments = { 'italic' },
+          conditionals = { 'italic' },
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+        },
+        integrations = {
+          gitsigns = true,
+          nvimtree = true,
+          neotree = true,
+          treesitter = true,
+          telescope = { enabled = true },
+          which_key = true,
+          fidget = true,
+          mason = true,
+          native_lsp = {
+            enabled = true,
+            underlines = {
+              errors = { 'undercurl' },
+              hints = { 'undercurl' },
+              warnings = { 'undercurl' },
+              information = { 'undercurl' },
+            },
+          },
+        },
+      }
+    end,
+  },
+
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
@@ -1279,6 +1286,9 @@ require('lazy').setup({
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
 }, {
+  rocks = {
+    hererocks = true, -- Use built-in luarocks for plugins that need rocks (e.g., image.nvim)
+  },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
