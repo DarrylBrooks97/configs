@@ -61,6 +61,9 @@ alias kd="kube get deployments -o wide"
 autoload -Uz compinit
 compinit -u
 
+# Misc 
+export CLAUDE_CODE_NO_FLICKER=1
+
 ## bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -71,6 +74,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
 # pnpm
 # export PNPM_HOME="/Users/darrylbrooks/Library/pnpm"
@@ -130,6 +134,7 @@ function __zoxide_hook() {
 }
 
 # Initialize hook.
+#
 \builtin typeset -ga precmd_functions
 \builtin typeset -ga chpwd_functions
 # shellcheck disable=SC2034,SC2296
@@ -244,17 +249,7 @@ if [[ -o zle ]]; then
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete cd
 fi
 
-# Usage: gwj (interactive jump with preview)
-gwj() {
-  local selected=$(git worktree list | fzf \
-    --height 50% --border --layout=reverse \
-    --prompt="Jump to > " \
-    --preview="echo 'Recent Commits:' && git -C {1} log --oneline -5 && echo '\nChanges:' && git -C {1} status --short" \
-    --preview-window="right:50%")
-    
-  if [[ -n "$selected" ]]; then
-    cd "$(echo "$selected" | awk '{print $1}')"
-  fi
-}
-
 eval "$(zoxide init zsh)"
+
+# Entire CLI shell completion
+autoload -Uz compinit && compinit -u && source <(entire completion zsh)
