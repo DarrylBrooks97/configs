@@ -1,0 +1,87 @@
+onboarding = false
+# herdr configuration
+# Keybindings mirror ~/.tmux.conf (tmux windows == herdr tabs,
+# tmux sessions == herdr workspaces). Anything not set here uses herdr defaults.
+# Reload after edits with: herdr server reload-config
+
+[keys]
+# Prefix key — tmux: `set -g prefix C-f`
+prefix = "ctrl+f"
+
+# Detach — tmux default `prefix+d` (herdr default is prefix+q)
+detach = "prefix+d"
+
+# Reload config — tmux: `bind r source-file ~/.tmux.conf`
+# This takes prefix+r, so resize_mode (herdr default prefix+r) moves to prefix+shift+r.
+reload_config = "prefix+r"
+resize_mode = "prefix+shift+r"
+
+# Navigation — prefix+w opens the session picker; prefix+g opens workspace navigation.
+workspace_picker = "prefix+w"
+goto = "prefix+g"
+
+# Workspace picker navigation (navigate mode) — use vim keys instead of arrows.
+# These are local, bare keys (no prefix, no esc) active while the picker is open.
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+# Free up j/k from navigate-mode pane up/down to avoid the collision warning.
+# Pane left/right stay on h/l; use prefix+h/j/k/l for full pane focus.
+navigate_pane_up = ""
+navigate_pane_down = ""
+
+# Workspaces == tmux sessions
+# tmux: `bind s new-session` — this takes prefix+s, so settings (herdr default
+# prefix+s) moves to prefix+shift+s.
+new_workspace = "prefix+s"
+settings = "prefix+shift+s"
+close_workspace = "prefix+@"   # tmux: `bind @ kill-session`
+
+# Tabs == tmux windows
+new_tab = "prefix+c"           # tmux: `bind c new-window`
+next_tab = "prefix+n"          # tmux: `bind n next-window`
+previous_tab = "prefix+p"      # tmux: `bind p previous-window`
+close_tab = "prefix+&"         # tmux: `bind & kill-window`
+rename_tab = "prefix+,"        # tmux: `bind , rename-window`
+rename_workspace = "prefix+$"  # tmux: `bind $ rename-session`
+
+# Panes — tmux: `bind h/j/k/l select-pane -L/-D/-U/-R`
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Splits — tmux: `bind | split-window -h` (left/right), `bind - split-window -v` (top/bottom)
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+
+close_pane = "prefix+%"        # tmux: `bind % kill-pane`
+
+# Direct workspace switching (no picker) — tmux: `bind ( switch-client -p`, `bind ) switch-client -n`.
+previous_workspace = "prefix+("
+next_workspace = "prefix+)"
+
+# Zoom/maximize the focused pane — tmux: `bind z resize-pane -Z`
+zoom = "prefix+z"
+
+# Jump back to the previously focused pane — tmux: `bind ; last-pane`
+last_pane = "prefix+;"
+
+[ui.toast]
+delivery = "herdr"
+
+[theme]
+name = "vesper"
+
+auto_switch = false
+[ui]
+show_agent_labels_on_pane_borders = true
+
+agent_panel_sort = "priority"
+[experimental]
+pane_history = false
+switch_ascii_input_source_in_prefix = true
+
+[[keys.command]]              # open in a split beside your work
+key = "prefix+f"
+type = "shell"
+command = "herdr plugin action invoke open-file-viewer --plugin herdr-file-viewer"
