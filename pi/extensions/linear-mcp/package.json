@@ -1,0 +1,17 @@
+{
+  "name": "linear-mcp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "mcp-remote": "^0.1.38",
+    "typebox": "^1.2.3"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "lastChangelogVersion": "0.80.10",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "skills": []
+    },
+    {
+      "source": "npm:pi-mcp-adapter",
+      "extensions": []
+    },
+    {
+      "source": "npm:pi-intercom",
+      "extensions": []
+    },
+    "npm:pi-prompt-template-model",
+    "npm:@narumitw/pi-retry",
+    "npm:pi-opencode-bridge",
+    {
+      "source": "npm:@amaster.ai/pi-computer-use",
+      "extensions": []
+    },
+    "~/.pi/agent/local-packages/arvore-pi-extensions/packages/worktree",
+    "npm:pi-cursor-sdk",
+    "npm:pi-smart-compact"
+  ],
+  "steeringMode": "one-at-a-time",
+  "theme": "rose-pine",
+  "editorPaddingX": 1,
+  "collapseChangelog": true,
+  "quietStartup": true,
+  "compaction": {
+    "enabled": true
+  },
+  "doubleEscapeAction": "tree",
+  "hideThinkingBlock": true,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "treeFilterMode": "all"
+}

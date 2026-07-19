@@ -1,0 +1,29 @@
+.DS_Store
+*.log
+node_modules/
+
+# Local worktrees and editor state
+.worktrees/
+.nvimlog
+
+# Pi credentials and runtime state
+pi/.cache/
+pi/auth.json
+pi/compact-backups/
+pi/git/
+pi/intercom/
+pi/mcp-cache.json
+pi/mcp-npx-cache.json
+pi/mcp-oauth/
+pi/npm/
+pi/run-history.jsonl
+pi/sessions/
+pi/trust.json
+
+# Herdr downloads and runtime state
+herdr/herdr-client.log
+herdr/herdr-server.log
+herdr/plugins/
+herdr/plugins.json
+herdr/release-notes.json
+herdr/session.json
