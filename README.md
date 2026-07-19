@@ -36,7 +36,7 @@ Clone or link that repository at the expected location before starting Pi. It re
 
 ## Install
 
-The installer backs up existing targets with a timestamp before creating symlinks. It also installs Pi extension dependencies and pinned Herdr plugins. Run it from the stable clone, not a disposable Git worktree, because the installed symlinks point back to that checkout.
+The installer preflights requirements, installs dependencies and pinned Herdr plugins, then backs up existing targets before creating symlinks. If linking fails, it restores the previous configuration. Run it from the stable clone, not a disposable Git worktree, because the installed symlinks point back to that checkout.
 
 ```bash
 ./install.sh
