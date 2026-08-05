@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Security"
+  short_description: "Scan and remediate repository vulnerabilities"
+  default_prompt: "Use $codex-security to scan this repository for security vulnerabilities."

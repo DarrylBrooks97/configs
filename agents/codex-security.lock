@@ -1,0 +1,5 @@
+# Source used to validate the local codex-security skill
+repository=https://github.com/openai/codex-security
+ref=main
+commit=18a183fe16bdc8ef43d9203360e88be2c43a1c8e
+cli_version_tested=0.1.5

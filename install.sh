@@ -102,6 +102,11 @@ config_sources=(
   "$repo_dir/pi/settings.json"
   "$repo_dir/pi/themes"
   "$repo_dir/pi/extensions"
+  "$repo_dir/agents/skills/writing-quality-code"
+  "$repo_dir/agents/skills/interface-polish"
+  "$repo_dir/agents/skills/emilkowal-animations"
+  "$repo_dir/agents/skills/git-conventions"
+  "$repo_dir/agents/skills/codex-security"
 )
 for source in "${config_sources[@]}"; do
   if [[ ! -e "$source" ]]; then
@@ -121,6 +126,11 @@ link_config "$repo_dir/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 link_config "$repo_dir/pi/settings.json" "$HOME/.pi/agent/settings.json"
 link_config "$repo_dir/pi/themes" "$HOME/.pi/agent/themes"
 link_config "$repo_dir/pi/extensions" "$HOME/.pi/agent/extensions"
+link_config "$repo_dir/agents/skills/writing-quality-code" "$HOME/.agents/skills/writing-quality-code"
+link_config "$repo_dir/agents/skills/interface-polish" "$HOME/.agents/skills/interface-polish"
+link_config "$repo_dir/agents/skills/emilkowal-animations" "$HOME/.agents/skills/emilkowal-animations"
+link_config "$repo_dir/agents/skills/git-conventions" "$HOME/.agents/skills/git-conventions"
+link_config "$repo_dir/agents/skills/codex-security" "$HOME/.agents/skills/codex-security"
 trap - ERR
 
 cat <<'EOF'

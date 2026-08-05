@@ -1,0 +1,4 @@
+interface-polish:
+    display_name: 'Interface Polish'
+    short_description: 'Refine UI details, motion, and visual polish'
+    default_prompt: 'Use $interface-polish to refine this UI with stronger interaction details, motion, spacing, and visual polish.'
