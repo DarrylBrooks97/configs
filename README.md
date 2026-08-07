@@ -4,7 +4,7 @@ Personal configuration for Agent Skills, Pi, Herdr, tmux, and Neovim, plus suppo
 
 ## Included
 
-- **Agent Skills:** personal writing-quality, interface polish, animation, security scanning, and Git conventions
+- **Agent Skills:** personal writing-quality, interface polish, animation, security scanning, Git conventions, and Orthogonal API access
 - **Pi:** global settings, custom themes, battery/startup extensions, Linear MCP adapter, and subagent tooling
 - **Herdr:** tmux-aligned keybindings, Vesper theme, UI preferences, and pinned plugins
 - **tmux:** Rose Pine theme, vim-style navigation, TPM plugins, and CSI-u extended keys for Pi
@@ -74,6 +74,8 @@ Refresh the complete Emil Kowalski animation skill independently with:
 
 The `codex-security` skill is maintained locally and runs the current `@openai/codex-security` CLI through `npx`. It defaults to read-only scans and requires explicit approval before applying security patches.
 
+The `orthogonal` skill is maintained locally and documents first-party Orthogonal usage (SDK, CLI, MCP, REST) for live external data, enrichment, and research workflows.
+
 After installation, restart tmux completely so modified key sequences are forwarded correctly:
 
 ```bash
@@ -104,6 +106,7 @@ ln -s "$PWD/agents/skills/interface-polish" ~/.agents/skills/interface-polish
 ln -s "$PWD/agents/skills/emilkowal-animations" ~/.agents/skills/emilkowal-animations
 ln -s "$PWD/agents/skills/git-conventions" ~/.agents/skills/git-conventions
 ln -s "$PWD/agents/skills/codex-security" ~/.agents/skills/codex-security
+ln -s "$PWD/agents/skills/orthogonal" ~/.agents/skills/orthogonal
 ```
 
 Install only the pinned Herdr plugins with:

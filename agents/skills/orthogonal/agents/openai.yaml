@@ -1,0 +1,4 @@
+interface:
+  display_name: "Orthogonal"
+  short_description: "Discover and call paid external APIs"
+  default_prompt: "Use $orthogonal to search the catalog and run the right API for this task."

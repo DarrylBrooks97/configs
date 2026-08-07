@@ -107,6 +107,7 @@ config_sources=(
   "$repo_dir/agents/skills/emilkowal-animations"
   "$repo_dir/agents/skills/git-conventions"
   "$repo_dir/agents/skills/codex-security"
+  "$repo_dir/agents/skills/orthogonal"
 )
 for source in "${config_sources[@]}"; do
   if [[ ! -e "$source" ]]; then
@@ -131,6 +132,7 @@ link_config "$repo_dir/agents/skills/interface-polish" "$HOME/.agents/skills/int
 link_config "$repo_dir/agents/skills/emilkowal-animations" "$HOME/.agents/skills/emilkowal-animations"
 link_config "$repo_dir/agents/skills/git-conventions" "$HOME/.agents/skills/git-conventions"
 link_config "$repo_dir/agents/skills/codex-security" "$HOME/.agents/skills/codex-security"
+link_config "$repo_dir/agents/skills/orthogonal" "$HOME/.agents/skills/orthogonal"
 trap - ERR
 
 cat <<'EOF'
