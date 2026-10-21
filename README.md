@@ -4,7 +4,7 @@ Personal configuration for Agent Skills, Pi, Herdr, tmux, and Neovim, plus suppo
 
 ## Included
 
-- **Agent Skills:** personal writing-quality, interface polish, animation, security scanning, and Git conventions
+- **Agent Skills:** personal writing-quality, interface polish, animation, security scanning, and Git conventions, plus the Cursor thermo-nuclear code quality review
 - **Pi:** global settings, custom themes, battery/startup extensions, Linear MCP adapter, and subagent tooling
 - **Herdr:** tmux-aligned keybindings, Vesper theme, UI preferences, and pinned plugins
 - **tmux:** Rose Pine theme, vim-style navigation, TPM plugins, and CSI-u extended keys for Pi
@@ -72,6 +72,18 @@ Refresh the complete Emil Kowalski animation skill independently with:
 ./agents/sync-emil-animations.sh
 ```
 
+Refresh the Cursor thermo-nuclear code quality review skill with:
+
+```bash
+./agents/sync-cursor-team-kit.sh
+```
+
+That updater mirrors `cursor-team-kit/skills/thermo-nuclear-code-quality-review` from
+[cursor/plugins](https://github.com/cursor/plugins), keeps the upstream MIT license
+alongside it, and records the pinned commit in `agents/cursor-team-kit.lock` so each
+refresh is traceable. The skill is also linked into `~/.claude/skills`, `~/.codex/skills`,
+and `~/.cursor/skills` so every agent on the machine can discover it.
+
 The `codex-security` skill is maintained locally and runs the current `@openai/codex-security` CLI through `npx`. It defaults to read-only scans and requires explicit approval before applying security patches.
 
 After installation, restart tmux completely so modified key sequences are forwarded correctly:
@@ -104,6 +116,10 @@ ln -s "$PWD/agents/skills/interface-polish" ~/.agents/skills/interface-polish
 ln -s "$PWD/agents/skills/emilkowal-animations" ~/.agents/skills/emilkowal-animations
 ln -s "$PWD/agents/skills/git-conventions" ~/.agents/skills/git-conventions
 ln -s "$PWD/agents/skills/codex-security" ~/.agents/skills/codex-security
+ln -s "$PWD/agents/skills/thermo-nuclear-code-quality-review" ~/.agents/skills/thermo-nuclear-code-quality-review
+ln -s "../../.agents/skills/thermo-nuclear-code-quality-review" ~/.claude/skills/thermo-nuclear-code-quality-review
+ln -s "../../.agents/skills/thermo-nuclear-code-quality-review" ~/.codex/skills/thermo-nuclear-code-quality-review
+ln -s "../../.agents/skills/thermo-nuclear-code-quality-review" ~/.cursor/skills/thermo-nuclear-code-quality-review
 ```
 
 Install only the pinned Herdr plugins with:

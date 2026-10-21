@@ -107,6 +107,7 @@ config_sources=(
   "$repo_dir/agents/skills/emilkowal-animations"
   "$repo_dir/agents/skills/git-conventions"
   "$repo_dir/agents/skills/codex-security"
+  "$repo_dir/agents/skills/thermo-nuclear-code-quality-review"
 )
 for source in "${config_sources[@]}"; do
   if [[ ! -e "$source" ]]; then
@@ -131,6 +132,12 @@ link_config "$repo_dir/agents/skills/interface-polish" "$HOME/.agents/skills/int
 link_config "$repo_dir/agents/skills/emilkowal-animations" "$HOME/.agents/skills/emilkowal-animations"
 link_config "$repo_dir/agents/skills/git-conventions" "$HOME/.agents/skills/git-conventions"
 link_config "$repo_dir/agents/skills/codex-security" "$HOME/.agents/skills/codex-security"
+link_config "$repo_dir/agents/skills/thermo-nuclear-code-quality-review" "$HOME/.agents/skills/thermo-nuclear-code-quality-review"
+# Keep the Cursor team kit skill discoverable by the other agents that read
+# their own skills directories. They point at the single canonical copy.
+link_config "../../.agents/skills/thermo-nuclear-code-quality-review" "$HOME/.claude/skills/thermo-nuclear-code-quality-review"
+link_config "../../.agents/skills/thermo-nuclear-code-quality-review" "$HOME/.codex/skills/thermo-nuclear-code-quality-review"
+link_config "../../.agents/skills/thermo-nuclear-code-quality-review" "$HOME/.cursor/skills/thermo-nuclear-code-quality-review"
 trap - ERR
 
 cat <<'EOF'
